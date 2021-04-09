@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="mb-3">
+    <span>Progress</span>
+    <progressbar progressbarType="info" progressbarPercentage="85"></progressbar>
+  </div>
+
+  <span class="form-check-label">What is your level of education?</span>
+  <badgevalue-selection [dataInputArray]="educationLevelOptionList"
+    (dataResponseObject)="onBadgeSelction($event, 'educationLevel')"></badgevalue-selection>
+
+  <br>
+
+  <span class="form-check-label">What is your level of education Duration?</span>
+  <badgevalue-selection [dataInputArray]="educationLevelDurationOptionList"
+    (dataResponseObject)="onBadgeSelction($event, 'educationLevelDuration')"></badgevalue-selection>
+
+  <br>
+
+  <!-- Submit button -->
+  <div class="form-group d-flex">
+    <button [disabled]="requestInProgress" (click)="onBack()" type="button" class="text-button mr-2">Back</button>
+    <button [disabled]="requestInProgress || !pageForm.valid" (click)="onFromSubmit()" type="submit"
+      class="btn btn-primary btn-block">Next</button>
+  </div>
+</div>

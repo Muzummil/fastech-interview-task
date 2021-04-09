@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="mb-3">
+    <span>Progress</span>
+    <progressbar progressbarType="info" progressbarPercentage="20"></progressbar>
+  </div>
+
+  <span class="mb-2 fs-20">Have you ever visited Dubai?</span>
+  <badgevalue-selection [dataInputArray]="yesNoOptionList"
+    (dataResponseObject)="onBadgeSelction($event, 'visitedBefore')"></badgevalue-selection>
+
+    <span class="mb-2 fs-20">Do you have any friends or family in Dubai?</span>
+  <badgevalue-selection [dataInputArray]="yesNoOptionList"
+    (dataResponseObject)="onBadgeSelction($event, 'familyInDubai')"></badgevalue-selection>
+
+    <span class="mb-2 fs-20">How long do you want to stay in stay in Dubai?</span>
+  <badgevalue-selection [dataInputArray]="stayingPeriodList"
+    (dataResponseObject)="onBadgeSelction($event, 'stayingPeriod')"></badgevalue-selection>
+
+  <br>
+
+  <!-- Submit button -->
+  <div class="form-group d-flex">
+    <button [disabled]="requestInProgress" (click)="onBack()" type="button" class="text-button mr-2">Back</button>
+    <button [disabled]="requestInProgress || !pageForm.valid" (click)="onFromSubmit()" type="submit"
+      class="btn btn-primary">Next</button>
+  </div>
+</div>

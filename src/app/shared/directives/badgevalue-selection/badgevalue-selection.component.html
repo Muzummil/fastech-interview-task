@@ -1,0 +1,41 @@
+
+  <ng-container *ngIf="!viewOnly">
+    <div *ngIf="isSingleSelectionOnly" class="btn-toolbar pull-right">
+      <div *ngFor="let item of dataInputArray;let index=index">
+        <button (click)="onItemSelect(item, index);" type="button" class="badge-bg mr-1"
+          [ngClass]="selectedItem?.id == item.id ? 'selected' : 'unselected'">
+          <span>
+            <fa-icon [icon]="configService[item?.iconName]"></fa-icon>
+          </span>
+          {{item?.name}}
+        </button>
+      </div>
+    </div>
+  
+  
+    <div *ngIf="!isSingleSelectionOnly" class="btn-toolbar pull-right">
+      <div *ngFor="let item of dataInputArray;let index=index">
+        <button type="button" (click)="onItemMultiSelect(item);" class="badge-bg mr-1"
+          [ngClass]="isValueSelected(item.id) ? 'selected' : ''">
+          <span>
+            <fa-icon [icon]="configService[item?.iconName]"></fa-icon>
+          </span>
+          {{item?.name}}
+        </button>
+      </div>
+    </div>
+  </ng-container>
+  
+  
+  <ng-container *ngIf="viewOnly">
+    <div class="btn-toolbar pull-right">
+      <div *ngFor="let item of dataInputArray;let index=index">
+        <button type="button" class="badge-bg selected mr-1">
+          <span>
+            <fa-icon [icon]="configService[item?.iconName]"></fa-icon>
+          </span>
+          {{item?.name}}
+        </button>
+      </div>
+    </div>
+  </ng-container>

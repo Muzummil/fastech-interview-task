@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+.fs-20{
+  font-size: 20px;
+}
+.error-field{
+  border: 1px solid #e74c3c !important;
+}
+
+.form-control{
+  background-color: #EFEFEF;
+  height: 50px;
+  border: none;
+}
+
+.btn-primary{
+  background: rgb(74,51,225);
+  background: linear-gradient(259deg, rgba(74,51,225,1) 0%, rgba(133,41,233,1) 100%);
+  border-radius: 160px!important;
+  border: none;
+  height: 50px;
+  max-width: 220px;
+  width: auto;
+  padding: 0px 24px;
+}
+.btn-outline-secondary{
+  background-color: #EFEFEF;
+  border: none;
+}
+
+.text-button{
+  border: none;
+  text-decoration: underline;
+  background: none;
+}
+.progress{
+  height: 8px!important;
+}
+.bg-info{
+  background: rgb(74, 51, 225);
+  background: linear-gradient(259deg, rgba(74, 51, 225, 1) 0%, rgba(133, 41, 233, 1) 100%);
+}

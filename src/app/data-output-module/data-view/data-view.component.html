@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="mb-3">
+    <span>Progress</span>
+    <progressbar progressbarType="info" progressbarPercentage="100" [progressbarAnimated]=false></progressbar>
+  </div>
+
+  <div class="fs-20 mb-2">Complete - Review your application</div>
+
+  <ng-container *ngIf="userData">
+    <div class="card-task p-3 mb-3">
+      <h3 class="fs-20">Basic Information</h3>
+      <div class="row">
+        <div class="col-md-6 col-sm-12 col-xs-12"><b>Name: </b> <span>{{userData.firstName}} {{userData.lastName}}</span>
+        </div>
+        <div class="col-md-6 col-sm-12 col-xs-12"><b>Date of birth: </b> <span>{{userData.dob.day}}/{{userData.dob.month}}/{{userData.dob.year}}</span></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 col-sm-12 col-xs-12"><b>Gender: </b> <span>{{userData.gender | titlecase}}</span></div>
+        <div class="col-md-6 col-sm-12 col-xs-12"><b>Nationality: </b> <span>{{userData.nationality}}</span></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 col-sm-12 col-xs-12"><b>Country of residence: </b> <span>{{userData.currentCountry}}</span>
+        </div>
+        <div class="col-md-6 col-sm-12 col-xs-12"><b>Contact Number: </b> <span>{{userData.contactNumber}}</span></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12"><b>Email: </b> <span>{{userData.email}}</span></div>
+      </div>
+    </div>
+
+    <div class="card-task p-3 mb-3">
+      <h3 class="fs-20 mb-2">Have you ever visited Dubai?</h3>
+      <badgevalue-selection [dataInputArray]="[userData?.visitedBefore]" [viewOnly]="true"></badgevalue-selection>
+
+      <h3 class="fs-20 mb-2">Do you have any friends or family in Dubai?</h3>
+      <badgevalue-selection [dataInputArray]="[userData?.familyInDubai]" [viewOnly]="true"></badgevalue-selection>
+
+      <h3 class="fs-20 mb-2">How long do you want to stay in stay in Dubai?</h3>
+      <badgevalue-selection [dataInputArray]="[userData?.stayingPeriod]" [viewOnly]="true"></badgevalue-selection>
+
+      <h3 class="fs-20 mb-2">Why do you want to come to dubai?</h3>
+      <badgevalue-selection [dataInputArray]="userData?.whydubai" [viewOnly]="true"></badgevalue-selection>
+
+      <h3 class="fs-20 mb-2">What industries would you prefer to work in?</h3>
+      <badgevalue-selection [dataInputArray]="userData?.industries" [viewOnly]="true"></badgevalue-selection>
+
+      <h3 class="fs-20 mb-2">What are your interests?</h3>
+      <badgevalue-selection [dataInputArray]="userData?.interests" [viewOnly]="true"></badgevalue-selection>
+
+      <h3 class="fs-20 mb-2">Do you have any financial savings?</h3>
+      <badgevalue-selection [dataInputArray]="userData?.interests" [viewOnly]="true"></badgevalue-selection>
+
+
+      <h3 class="fs-20 mb-2">What is your level of education?</h3>
+      <badgevalue-selection [dataInputArray]="[userData?.educationLevel]" [viewOnly]="true"></badgevalue-selection>
+
+      <br>
+
+      <h3 class="fs-20 mb-2">What is your level of education Duration?</h3>
+      <badgevalue-selection [dataInputArray]="[userData?.educationLevelDuration]" [viewOnly]="true">
+      </badgevalue-selection>
+
+    </div>
+
+    <!-- Submit button -->
+    <div class="form-group d-flex">
+      <button (click)="onBack()" type="button" class="text-button mr-2">Back</button>
+      <button type="submit" class="btn btn-primary btn-block">Complete Application</button>
+    </div>
+
+  </ng-container>
+</div>

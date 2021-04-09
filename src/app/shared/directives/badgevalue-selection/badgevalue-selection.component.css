@@ -1,0 +1,17 @@
+.selected{
+  background-color: rgb(74 51 225 / 25%)!important;
+  color:#4a33e1;
+}
+
+.hide{
+  display: none;
+}
+
+.badge-bg{
+  border: none;
+  background: #EFEFEF;
+  border-radius: 35px;
+  width: auto;
+  padding: 16px 22px;
+  margin: 5px 0px;
+}

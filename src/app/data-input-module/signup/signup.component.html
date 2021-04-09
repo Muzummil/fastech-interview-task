@@ -1,0 +1,99 @@
+<form [formGroup]="signupForm" class="container">
+
+  <!-- First Name -->
+  <div class="mt-4">
+    <input type="text" class="form-control" placeholder="First Name" formControlName="firstName" [class.error-field]="
+                (signupForm.get('firstName').touched || !pristineFlag) && !signupForm.get('firstName').valid">
+  </div>
+
+  <!-- Last Name -->
+  <div class="mt-4">
+    <input type="text" class="form-control" placeholder="Last Name" formControlName="lastName" [class.error-field]="
+                (signupForm.get('lastName').touched || !pristineFlag) && !signupForm.get('lastName').valid">
+  </div>
+
+  <!-- DOB -->
+  <div class="mt-4">
+    <div class="form-group">
+      <div class="input-group">
+        <input (click)="d.toggle()" class="form-control" placeholder="Date of Birth" name="dp" formControlName="dob"
+          ngbDatepicker #d="ngbDatepicker" [class.error-field]="
+                (signupForm.get('dob').touched || !pristineFlag) && !signupForm.get('dob').valid">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+            <fa-icon [icon]="configService.faCalendarCheck"></fa-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- userName -->
+  <div class="mt-4">
+    <input type="text" class="form-control" placeholder="User Name" formControlName="userName" [class.error-field]="
+                (signupForm.get('userName').touched || !pristineFlag) && !signupForm.get('userName').valid">
+  </div>
+
+  <!-- Gender -->
+  <div class="mt-4">
+    <div class="form-check-inline">
+      <input formControlName="gender" value="male" class="form-check-input checkbox-lg rounded" type="radio"
+        name="gender">
+      <label class="form-check-label ml-1" for="flexCheck1">
+        Male
+      </label>
+    </div>
+    <div class="form-check-inline">
+      <input formControlName="gender" class="form-check-input checkbox-lg rounded" type="radio" value="female"
+        name="gender">
+      <label class="form-check-label ml-1" for="flexCheck2">
+        Female
+      </label>
+    </div>
+    <div class="form-check-inline">
+      <input formControlName="gender" class="form-check-input checkbox-lg rounded" type="radio" value="other"
+        name="gender">
+      <label class="form-check-label ml-1" for="flexCheck3">
+        Other
+      </label>
+    </div>
+  </div>
+
+  <!-- Nationality -->
+  <div class="mt-4">
+    <dropdown-selectbox *ngIf="countriesList?.length > 0" [data]="countriesList" placeholder="Nationality"
+      [customClasses]="(signupForm.get('nationality').touched || !pristineFlag) && !signupForm.get('nationality').valid ? 'error-field' : ''"
+      (dataResponseObject)="dropdownChange($event, 'nationality')">
+    </dropdown-selectbox>
+  </div>
+
+  <!-- Current cuntry -->
+  <div class="mt-4">
+    <dropdown-selectbox *ngIf="countriesList?.length > 0" [data]="countriesList" placeholder="Country of residence"
+      [customClasses]="(signupForm.get('currentCountry').touched || !pristineFlag) && !signupForm.get('currentCountry').valid ? 'error-field' : ''"
+      (dataResponseObject)="dropdownChange($event, 'currentCountry')">
+    </dropdown-selectbox>
+  </div>
+
+  <!-- contactNumber -->
+  <div class="mt-4">
+    <input type="text" class="form-control" placeholder="Contact Number" formControlName="contactNumber"
+      [class.error-field]="
+                  (signupForm.get('contactNumber').touched || !pristineFlag) && !signupForm.get('contactNumber').valid">
+  </div>
+
+  <!-- email -->
+  <div class="mt-4">
+    <input type="email"  email="true" class="form-control" placeholder="Email" formControlName="email" [class.error-field]="
+                  (signupForm.get('email').touched || !pristineFlag) && !signupForm.get('email').valid">
+  </div>
+
+  <!-- clearfix -->
+  <div class="clearfix mt-4"></div>
+
+  <!-- Submit button -->
+  <div class="form-group">
+    <button [disabled]="requestInProgress" (click)="onFromSubmit()" type="submit" class="btn btn-primary btn-block">Apply Now</button>
+  </div>
+
+</form>

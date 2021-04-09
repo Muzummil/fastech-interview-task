@@ -1,0 +1,40 @@
+body {
+  margin: 50px;
+}
+
+.checkbox-lg {
+  width: 30px;
+  height: 30px;
+}
+
+input[type="radio"] {
+  appearance: none;
+  border: 1px solid #d3d3d3;
+  width: 24px;
+  height: 24px;
+  content: none;
+  outline: none;
+  margin: 0;
+  margin-right: 0.5rem;
+}
+
+input[type="radio"]:checked {
+  appearance: none;
+  outline: none;
+  padding: 0;
+  content: none;
+}
+
+input[type="radio"]:checked::before {
+  position: absolute;
+  color: #fff !important;
+  content: "\00A0\2713\00A0" !important;
+  font-weight: bolder;
+  font-size: 16px;
+  width: 24px;
+  height: 24px;
+  background: rgb(74, 51, 225);
+  background: linear-gradient(259deg, rgba(74, 51, 225, 1) 0%, rgba(133, 41, 233, 1) 100%);
+  border-radius: .25rem!important;
+  border: none;
+}

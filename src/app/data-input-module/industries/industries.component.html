@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="mb-3">
+    <span>Progress</span>
+    <progressbar progressbarType="info" progressbarPercentage="50"></progressbar>
+  </div>
+
+  <span class="mb-2 fs-20">What industries would you prefer to work in?</span>
+  <badgevalue-selection [dataInputArray]="yesNoOptionList" [isSingleSelectionOnly]="false"
+    (dataResponseObject)="onBadgeSelction($event, 'industries')"></badgevalue-selection>
+
+  <br>
+
+  <!-- Submit button -->
+  <div class="form-group d-flex">
+    <button [disabled]="requestInProgress" (click)="onBack()" type="button" class="text-button mr-2">Back</button>
+    <button [disabled]="requestInProgress || !pageForm.valid" (click)="onFromSubmit()" type="submit"
+      class="btn btn-primary">Next</button>
+  </div>
+</div>
